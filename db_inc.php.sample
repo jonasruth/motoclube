@@ -1,0 +1,10 @@
+<?php
+
+/// BANCO DE DADOS
+
+$mysqli = new mysqli("localhost", "seu_usuario", "sua_senha", "seu_db");
+$mysqli->set_charset("utf8");
+
+if (mysqli_connect_errno()){
+	die('Could not connect: ' . mysqli_connect_error());
+}

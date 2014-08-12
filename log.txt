@@ -1,0 +1,12 @@
+
+iniciando - 2014-08-12 04:48:37
+
+array (
+  'usuario' => 'jonas',
+)
+
+
+
+array (
+)
+
