@@ -1,12 +1,7 @@
 
-iniciando - 2014-08-12 04:48:37
+iniciando tabela preços - 2014-08-13 02:42:40
 
 array (
   'usuario' => 'jonas',
-)
-
-
-
-array (
 )
 
