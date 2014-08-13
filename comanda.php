@@ -51,7 +51,14 @@ if(isset($_REQUEST['usuario'])){
 		}
 		$result->close();
 
-		$itens = array(
+		
+
+		$mysqli->close();
+		
+		$retorno = 'comanda_ok';
+		
+		$json = array(
+			'retorno' => $retorno,
 			'cabecalho' => array(
 				'codigo' => $comanda->codigo_legivel,
 				'motoclube' => $comanda->motoclube,
@@ -60,14 +67,6 @@ if(isset($_REQUEST['usuario'])){
 				'cliente' => $comanda->consumidor,
 			),
 			'itens' => $comanda_itens,
-		);
-
-		$mysqli->close();
-		
-		$retorno = 'comanda_ok';
-		$json = array(
-			'retorno' => $retorno,
-			'itens'=>$itens
 		);
 		
 	}else{
