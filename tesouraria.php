@@ -3,7 +3,7 @@ require('header_inc.php');
 require('db_inc.php');
 require('aut_inc.php');
 
-$log = "\niniciando financeiro - " . date("Y-m-d H:i:s", time());
+$log = "\niniciando tesouraria - " . date("Y-m-d H:i:s", time());
 $log .= "\n\n".var_export($_REQUEST,true)."\n\n";
 
 if(isset($_REQUEST['usuario'])){
@@ -12,25 +12,31 @@ if(isset($_REQUEST['usuario'])){
 
 	$result = $mysqli->query("select 
 			date_format(j.datahora,'%d/%m/%Y') as data,
-			j.descricao,
-			j.valor,
-			j.operacao			
+			j.descricao as descricao,
+			j.valor as valor,
+			j.operacao as operacao	
 		from financeiro j 
 		inner join perfil k on k.id = j.perfil_id 
 		where k.usuario = '{$_REQUEST['usuario']}'");
-	$financeiro = $result->fetch_object();
+	$tesouraria_itens = array();
+	while($item = $result->fetch_assoc()){
+		array_push( 
+			$tesouraria_itens, array(
+				'data'  => $item['data'],
+				'descricao'   => $item['descricao'],
+				'operacao'   => $item['operacao'],
+				'valor' => $item['valor'],
+			)
+		);
+	}
+	
 	$result->close();
-
-	$itens = array(
-		'itens' => $financeiro,
-	);
-
 	$mysqli->close();
 		
-	$retorno = 'financeiro_ok';
+	$retorno = 'tesouraria_ok';
 	$json = array(
 		'retorno' => $retorno,
-		'itens'=>$itens
+		'itens' => $tesouraria_itens
 	);
 		
 }else{
