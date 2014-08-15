@@ -35,12 +35,13 @@ if($existente){
 	} else if($existente->email_existe>0){
 		$retorno = 'email_existente';
 	}else{
-		$result = $mysqli->query("insert into perfil (usuario,email,senha,nome,foto_perfil,apelido,motoclube_id,sede,graduacao)
-		values ('{$usuario}','{$email}','{$senha},'','default.jpg','',1,'','')");	
-		$cadastro = $result->fetch_object();
-		$log .= "\n\n".var_export($cadastro,true)."\n\n";
-		$result->close();
-		if($cadastro && $mysqli->affected_rows>0){
+		$strquery = "insert into perfil (usuario,email,senha,nome,foto_perfil,apelido,motoclube_id,sede,graduacao)
+		values ('{$usuario}','{$email}','{$senha}','','default.jpg','',1,'','')";
+		
+		$log .= "\n\n{$strquery}\n\n";
+		
+		$mysqli->query($strquery);	
+		if($mysqli->affected_rows>0){
 			$retorno = 'cadastro_success';
 		}	
 	}
