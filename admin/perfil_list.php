@@ -51,8 +51,6 @@
 </select>
 </div>
 
-<label for=""></label>
-<input type="text" name="" value="" maxlength="" placeholder="" required=""/>
 </form>
 
 </body>
