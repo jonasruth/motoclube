@@ -10,7 +10,16 @@ if(isset($_GET['evento_id'])){
 	
 	$evento = new stdClass();
 	$evento->id = $_GET['evento_id'];
-	$operacao = 'preupdate';
+	
+	
+	if(isset($_GET['op'])&&$_GET['op']==='abrir'){
+		$operacao = 'cxabrir';
+	}else if(isset($_GET['op'])&&$_GET['op']==='fechar'){
+		$operacao = 'cxfechar';
+	}else{
+		$operacao = 'preupdate';
+	}
+	
 	
 } else if(isset($_POST['evento'])){
 	$evento = new stdClass();
@@ -43,7 +52,6 @@ if($operacao === 'insert'){
 	exit;
 }else if($operacao === 'update'){
 	$strquery = "update evento set motoclube_id = {$evento->motoclube}, sede = '{$evento->sede}', datahora = '{$evento->datahora}', titulo ='{$evento->titulo}' where id = {$evento->id};";
-	echo $strquery;
 	$mysqli->query($strquery);
 	header( 'Location:evento_list.php?msg=update_ok' );
 	exit;
@@ -51,9 +59,19 @@ if($operacao === 'insert'){
 	$sqlquery = "SELECT j.id,j.titulo,date_format(j.datahora,'%Y-%m-%dT%H:%i:%s') as datahora,j.sede,k.nome as motoclube FROM evento j INNER JOIN motoclube k ON k.id = j.motoclube_id where j.id={$evento->id}";
 	$result = $mysqli->query($sqlquery);
 	$evento = $result->fetch_object();
+}else if($operacao ==='cxabrir'){
+	$strquery = "update evento set status='cxaberto' where id = {$evento->id};";
+	$mysqli->query($strquery);
+	header( 'Location:evento_list.php?msg=cxaberto_ok' );
+	exit;
+}else if($operacao ==='cxfechar'){
+	$strquery = "update evento set status='cxfechado' where id = {$evento->id};";
+	$mysqli->query($strquery);
+	header( 'Location:evento_list.php?msg=cxfechado_ok' );
+	exit;
 }
 
-$sqlquery = "SELECT j.id,j.titulo,j.datahora,j.sede,k.nome as motoclube FROM evento j INNER JOIN motoclube k ON k.id = j.motoclube_id;";
+$sqlquery = "SELECT j.id,j.titulo,j.datahora,j.sede,k.nome as motoclube,status FROM evento j INNER JOIN motoclube k ON k.id = j.motoclube_id;";
 $result = $mysqli->query($sqlquery);
 $eventos = array();
 while($item = $result->fetch_object()){
@@ -104,7 +122,14 @@ $mysqli->close();
 				<td><?php echo $item->titulo ?></td>
 				<td><?php echo $item->motoclube ?></td>
 				<td><?php echo $item->sede ?></td>
-				<td><a href="evento_list.php?evento_id=<?php echo $item->id ?>">Editar</button></td>
+				<td>
+					<?php if(!$item->status): ?>
+					<a href="evento_list.php?evento_id=<?php echo $item->id ?>">Editar</a>
+					<a href="evento_list.php?op=abrir&evento_id=<?php echo $item->id ?>" onclick="return confirm('Deseja realmente abrir o caixa?\nDepois não será possível editar o evento')">Abrir Caixa</a>
+					<?php elseif($item->status==='cxaberto'): ?>
+					<a href="evento_list.php?op=fechar&evento_id=<?php echo $item->id ?>" onclick="return confirm('Deseja realmente fechar o caixa?\nNão será possível desfazer alteração')">Fechar Caixa</a>
+					<?php endif; ?>
+				</td>
 			</tr>
 			<?php endforeach; ?>
 			
