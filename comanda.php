@@ -17,13 +17,18 @@ if(isset($_REQUEST['usuario'])){
 			l.titulo as evento,
 			m.nome as consumidor,
 			date_format(j.datahora,'%d/%m/%Y') as data,
-			status 
+			j.status 
 		from comanda j 
 		inner join motoclube k on k.id = j.motoclube_id 
 		inner join evento l on l.id = j.evento_id
 		inner join perfil m on m.id = j.consumidor_id
 		where m.usuario = '{$_REQUEST['usuario']}' and j.status = 'aberta'");
+	if(!$result){
+		$log .= "\n\nERRO: {$mysqli->error}\n\n";
+		printf("\n\nERRO: %s\n\n",$mysqli->error);
+	}
 	$comanda = $result->fetch_object();
+
 	$result->close();
 
 	if($comanda){

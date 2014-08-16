@@ -4,7 +4,7 @@ require('db_inc.php');
 require('aut_inc.php');
 
 
-$log = "\niniciando - " . date("Y-m-d H:i:s", time());
+$log = "\niniciando perfil - " . date("Y-m-d H:i:s", time());
 $log .= "\n\n".var_export($_REQUEST,true)."\n\n";
 
 

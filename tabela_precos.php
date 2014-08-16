@@ -19,6 +19,12 @@ if(isset($_REQUEST['usuario'])){
 		inner join motoclube k on k.id = j.motoclube_id 
 		inner join evento l on l.id = j.evento_id
 		where j.evento_id=2");
+
+	if(!$result){
+		printf("\n\nERRO: %s\n\n",$mysqli->error);
+		exit;
+	}
+
 	$tabela = $result->fetch_object();
 	$result->close();
 
@@ -31,7 +37,10 @@ if(isset($_REQUEST['usuario'])){
 			where j.valor_praticado_id = {$tabela->id}";
 
 		$result = $mysqli->query($query);
-
+		if(!$result){
+			printf("\n\nERRO: %s\n\n",$mysqli->error);
+			exit;
+		}
 		$tabela_itens = array();
 		while($item = $result->fetch_assoc()){
 			array_push(
