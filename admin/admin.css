@@ -1,0 +1,29 @@
+body {font-family:Arial; font-size: 18px; margin:0; padding:0}
+
+.conteudo { float:left; clear:both; width:1260px; background-color:#FFF; margin-left:10px; }
+h1,h2 { margin:10px; }
+
+.aviso { background-color:#FEA; margin:0; padding:5px 0; box-shadow: 0px 5px 5px #DDD; z-index:10000; position:relative }
+.aviso p { margin:0; padding:3px 1em; font-size:.9em}
+
+.form-line{ margin-left; 20px; margin-top:10px; margin-left:20px;  }
+.form-line label{ display:inline-block; width:6em; }
+.action-bar { margin-top:20px; text-align:right; }
+
+.form {float:left; width:490px; background-color:#DDD; font-size:.9em; margin-left:10px}
+.campo-obs { font-style:italic;  }
+.form button { font-size:1.1em; }
+
+.listagem {float:left; clear:left; width:760px; background-color:#CCC; font-size:.9em;}
+.listagem table { width:100%; border-collapse:collapse; }
+.listagem caption { background-color: black; color: white; padding:3px 0; font-size:.8em }
+.listagem table th{ background-color:#DDD;  }
+.listagem table th,.listagem table td{ padding:3px; font-size:.8em }
+.listagem table tr.no-records{ text-align:center }
+.listagem table tr.even{ background-color:#DDD }
+.listagem table tr.odd{ background-color:#EEE }
+
+.menu {margin:20px 0 10px; padding:0; border-bottom:3px solid #AAA;}
+.menu li{ display: inline-block;}
+.menu li .buttonlink { background-color:#CCC; border-color:#AAA}
+.buttonlink { padding:2px 1em; border: 1px solid #000; background-color: #3C3; display:inline-block; color:white;text-decoration:none;}

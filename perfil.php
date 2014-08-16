@@ -27,7 +27,8 @@ if(isset($_REQUEST['usuario'])){
 		
 	}
 
-	$result = $mysqli->query("
+	
+	$strquery = "
 		select
 			j.usuario as usuario,
 			j.nome as nome,
@@ -38,22 +39,32 @@ if(isset($_REQUEST['usuario'])){
 			k.nome as motoclube
 		from perfil j
 		inner join motoclube k on k.id = j.motoclube_id
-		where j.usuario = '{$_REQUEST['usuario']}'");
+		where j.usuario = '{$_REQUEST['usuario']}'";
+	$log .= "\n\n".var_export($strquery,true)."\n\n";
+	
+	$result = $mysqli->query($strquery);
 
 	$perfil = $result->fetch_object();
 	$result->close();
 
+	if($perfil){
 
-	$usuario = array(
-		'retorno' => $retorno,
-		'usuario' => $perfil->usuario,
-		'nome' => $perfil->nome,
-		'apelido' => $perfil->apelido,
-		'graduacao' => $perfil->graduacao,
-		'sede' => $perfil->sede,
-		'motoclube' => $perfil->motoclube,
-		'foto_perfil' => $perfil->foto_perfil,
-	);
+		$usuario = array(
+			'retorno' => $retorno,
+			'usuario' => $perfil->usuario,
+			'nome' => $perfil->nome,
+			'apelido' => $perfil->apelido,
+			'graduacao' => $perfil->graduacao,
+			'sede' => $perfil->sede,
+			'motoclube' => $perfil->motoclube,
+			'foto_perfil' => $perfil->foto_perfil,
+		);
+	}else{
+		$retorno = "usuario_nok";
+		$usuario = array(
+			'retorno' => $retorno,
+		);
+	}
 }else{
 	$retorno = "usuario_nok";
 	$usuario = array(

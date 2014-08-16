@@ -50,9 +50,6 @@ if(isset($_REQUEST['usuario'])){
 			);
 		}
 		$result->close();
-
-		
-
 		$mysqli->close();
 		
 		$retorno = 'comanda_ok';
