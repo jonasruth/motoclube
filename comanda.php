@@ -72,7 +72,7 @@ if(isset($_REQUEST['usuario'])){
 		);
 		
 	}else{
-		$retorno = "comanda_nok";
+		$retorno = "nenhuma_comanda_disponivel";
 		$json = array(
 			'retorno' => $retorno,
 		);
