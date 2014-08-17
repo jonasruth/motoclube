@@ -18,7 +18,9 @@ if(isset($_REQUEST['usuario'])){
 		from valor_praticado j 
 		inner join motoclube k on k.id = j.motoclube_id 
 		inner join evento l on l.id = j.evento_id
-		where j.evento_id=2");
+		inner join comanda cmd on cmd.evento_id = l.id
+		inner join perfil per on per.id = cmd.consumidor_id
+		where per.usuario = '{$_REQUEST['usuario']}' and cmd.status = 'aberta'");
 
 	if(!$result){
 		printf("\n\nERRO: %s\n\n",$mysqli->error);
