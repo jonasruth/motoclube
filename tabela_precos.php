@@ -52,7 +52,9 @@ if(isset($_REQUEST['usuario'])){
 		}
 		$result->close();
 
+		$retorno = 'tabela_ok';
 		$itens = array(
+			'retorno' => $retorno,
 			'cabecalho' => array(
 				'motoclube' => $tabela->motoclube,
 				'evento' => $tabela->evento,
@@ -62,15 +64,8 @@ if(isset($_REQUEST['usuario'])){
 		);
 
 		$mysqli->close();
-		
-		$retorno = 'tabela_ok';
-		$json = array(
-			'retorno' => $retorno,
-			'itens'=>$itens
-		);
-		
 	}else{
-		$retorno = "tabela_nok";
+		$retorno = "nenhuma_tabela_disponivel";
 		$json = array(
 			'retorno' => $retorno,
 		);
