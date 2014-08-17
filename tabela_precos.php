@@ -53,7 +53,7 @@ if(isset($_REQUEST['usuario'])){
 		$result->close();
 
 		$retorno = 'tabela_ok';
-		$itens = array(
+		$json = array(
 			'retorno' => $retorno,
 			'cabecalho' => array(
 				'motoclube' => $tabela->motoclube,
