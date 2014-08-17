@@ -21,7 +21,7 @@ if(isset($_REQUEST['usuario'])){
 		inner join comanda cmd on cmd.evento_id = l.id
 		inner join perfil per on per.id = cmd.consumidor_id
 		where per.usuario = '{$_REQUEST['usuario']}' and cmd.status = 'aberta'");
-
+ 
 	if(!$result){
 		printf("\n\nERRO: %s\n\n",$mysqli->error);
 		exit;
