@@ -71,7 +71,7 @@ if($operacao === 'insert'){
 	exit;
 }
 
-$sqlquery = "SELECT j.id,j.titulo,j.datahora,j.sede,k.nome as motoclube,status FROM evento j INNER JOIN motoclube k ON k.id = j.motoclube_id;";
+$sqlquery = "SELECT j.id,j.titulo,date_format(j.datahora,'%d\/%m\/%Y às %H\h%i') as datahora,j.sede,k.nome as motoclube,status FROM evento j INNER JOIN motoclube k ON k.id = j.motoclube_id;";
 $result = $mysqli->query($sqlquery);
 $eventos = array();
 while($item = $result->fetch_object()){
