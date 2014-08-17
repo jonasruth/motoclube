@@ -56,7 +56,7 @@ if($operacao === 'insert'){
 	header( 'Location:evento_list.php?msg=update_ok' );
 	exit;
 }else if($operacao === 'preupdate'){
-	$sqlquery = "SELECT j.id,j.titulo,date_format(j.datahora,'%Y-%m-%dT%H:%i:%s') as datahora,j.sede,k.nome as motoclube FROM evento j INNER JOIN motoclube k ON k.id = j.motoclube_id where j.id={$evento->id}";
+	$sqlquery = "SELECT j.id,j.titulo,date_format(j.datahora,'%Y-%m-%dT%H:%i') as datahora,j.sede,k.nome as motoclube FROM evento j INNER JOIN motoclube k ON k.id = j.motoclube_id where j.id={$evento->id}";
 	$result = $mysqli->query($sqlquery);
 	$evento = $result->fetch_object();
 }else if($operacao ==='cxabrir'){
