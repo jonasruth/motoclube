@@ -18,27 +18,40 @@ if(isset($_REQUEST['usuario'])){
 		from financeiro j 
 		inner join perfil k on k.id = j.perfil_id 
 		where k.usuario = '{$_REQUEST['usuario']}'");
-	$tesouraria_itens = array();
-	while($item = $result->fetch_assoc()){
-		array_push( 
-			$tesouraria_itens, array(
-				'data'  => $item['data'],
-				'descricao'   => $item['descricao'],
-				'operacao'   => $item['operacao'],
-				'valor' => $item['valor'],
-			)
-		);
+		
+	if(!$result){
+		printf("\n\nERRO: %s\n\n",$mysqli->error);
+		exit;
 	}
 	
-	$result->close();
-	$mysqli->close();
+	if($result->num_rows>0){
 		
-	$retorno = 'tesouraria_ok';
-	$json = array(
-		'retorno' => $retorno,
-		'itens' => $tesouraria_itens
-	);
+		$tesouraria_itens = array();
+		while($item = $result->fetch_assoc()){
+			array_push( 
+				$tesouraria_itens, array(
+					'data'  => $item['data'],
+					'descricao'   => $item['descricao'],
+					'operacao'   => $item['operacao'],
+					'valor' => $item['valor'],
+				)
+			);
+		}
 		
+		$result->close();
+		$mysqli->close();
+			
+		$retorno = 'tesouraria_ok';
+		$json = array(
+			'retorno' => $retorno,
+			'itens' => $tesouraria_itens
+		);
+	}else{
+		$retorno = "nenhum_registro_encontrado";
+		$json = array(
+			'retorno' => $retorno,
+		);
+	}
 }else{
 
 	$retorno = "usuario_nok";
