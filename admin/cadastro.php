@@ -1,6 +1,6 @@
 <?php
 
-require("/var/www/motoclube/header_inc.php");
+require("/var/www/motoclube/admin/header_inc.php");
 require("/var/www/motoclube/db_inc.php");
 
 // validar primeiro
@@ -67,7 +67,7 @@ if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha']))
 		$mysqli->close();		
 
 		if($cadastrado){
-			header("Location: welcome.php");
+			header("Location: {$myRoute->createLink('welcome',array())}");
 		}
 	}
 }

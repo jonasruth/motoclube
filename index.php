@@ -46,7 +46,8 @@ try {
         ->init($_SERVER['REQUEST_URI'])
         ->check();
 
-	//var_export($myRoute);
+    var_export($myRoute);
+	exit;
     include $myRoute->getMatchedRouteAction();
     
 }catch (RouteNotFoundException $e){
