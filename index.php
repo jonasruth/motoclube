@@ -14,6 +14,10 @@ $rulelist = array(
         'rule'=>'/index', // combinará com "http://localhost/jonas-php-library/demo/"
         'action'=>'./admin/home.php', // a ação a ser tomada
     ),
+	'home' => array(
+        'rule'=>'/home', // combinará com "http://localhost/jonas-php-library/demo/"
+        'action'=>'./admin/home.php', // a ação a ser tomada
+    ),
 	'cadastro' => array(
         'rule'=>'/cadastro', // combinará com "http://localhost/jonas-php-library/demo/"
         'action'=>'./admin/cadastro.php', // a ação a ser tomada
