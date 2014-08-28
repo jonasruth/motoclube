@@ -1,7 +1,7 @@
 <?php
 
-require("../header_inc.php");
-require("../db_inc.php");
+require("/var/www/motoclube/header_inc.php");
+require("/var/www/motoclube/db_inc.php");
 
 // validar primeiro
 if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha'])){
