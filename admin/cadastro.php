@@ -91,7 +91,7 @@ if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha']))
    
 
     <!-- Custom styles for this template -->
-    <link href="jumbotron-narrow.css" rel="stylesheet">
+    <link href="./jumbotron-narrow.css" rel="stylesheet">
 
   </head>
 
@@ -100,9 +100,9 @@ if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha']))
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a href="home.php">Home</a></li>
-          <li class="active"><a href="cadastro.php">Cadastro</a></li>
-		  <li><a href="download.php">Download</a></li>
+          <li><a href="home">Home</a></li>
+          <li class="active"><a href="cadastro">Cadastro</a></li>
+		  <li><a href="download">Download</a></li>
         </ul>
         <h3 class="text-muted">MeuBandoApp!!!</h3>
       </div>
@@ -114,7 +114,7 @@ if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha']))
 	
 <?php if(true): ?>
 	
-	  <form action="cadastro.php" method="post">
+	  <form action="cadastro" method="post">
 	
 		  <div class="row marketing">
 		  
@@ -155,7 +155,7 @@ if(isset($_POST['usuario']) || isset($_POST['email']) || isset($_POST['senha']))
 			</div>
 			
 			<div class="col-lg-12">
-				<p align="center"><button type="submit" class="btn btn-lg btn-success" action="cadastro.php" role="button">Cadastrar!</button></p>
+				<p align="center"><button type="submit" class="btn btn-lg btn-success" role="button">Cadastrar!</button></p>
 			</div>
 		  
 		  </div>

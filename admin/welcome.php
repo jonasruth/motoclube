@@ -31,9 +31,9 @@
       <div class="jumbotron">
         <h1>Cadastro efetuado!</h1>
         <p class="lead">Instale o MeuBandoApp no seu smartphone e começar a usar agora mesmo!</p>
-		<p><a class="btn btn-success" href="home.php" role="button">MeuBandoApp para <strong>IOS</strong></a></p>
-		<p><a class="btn btn-success" href="home.php" role="button">MeuBandoApp para <strong>Android</strong></a></p>
-		<p><a class="btn btn-link" href="home.php">Voltar para nossa Homepage</a></p>
+		<p><a class="btn btn-success" href="home" role="button">MeuBandoApp para <strong>IOS</strong></a></p>
+		<p><a class="btn btn-success" href="home" role="button">MeuBandoApp para <strong>Android</strong></a></p>
+		<p><a class="btn btn-link" href="home">Voltar para nossa Homepage</a></p>
       </div>
 
       <div class="row marketing">

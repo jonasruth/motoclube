@@ -26,9 +26,9 @@
     <div class="container">
       <div class="header">
 		<ul class="nav nav-pills pull-right">
-          <li><a href="home.php">Home</a></li>
-          <li><a href="cadastro.php">Cadastro</a></li>
-		  <li class="active"><a href="download.php">Download</a></li>
+          <li><a href="home">Home</a></li>
+          <li><a href="cadastro">Cadastro</a></li>
+		  <li class="active"><a href="download">Download</a></li>
         </ul>
         <h3 class="text-muted">MeuBandoApp!!!</h3>
       </div>
@@ -36,8 +36,8 @@
       <div class="jumbotron">
         <h1>Download</h1>
         <p class="lead">Instale o MeuBandoApp no seu smartphone e começar a usar agora mesmo!</p>
-		<p><a class="btn btn-success" href="home.php" role="button">MeuBandoApp para <strong>IOS</strong></a></p>
-		<p><a class="btn btn-success" href="home.php" role="button">MeuBandoApp para <strong>Android</strong></a></p>
+		<p><a class="btn btn-success" href="home" role="button">MeuBandoApp para <strong>IOS</strong></a></p>
+		<p><a class="btn btn-success" href="home" role="button">MeuBandoApp para <strong>Android</strong></a></p>
       </div>
 
       <div class="row marketing">

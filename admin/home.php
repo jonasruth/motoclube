@@ -26,9 +26,9 @@
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li class="active"><a href="home.php">Home</a></li>
-          <li><a href="cadastro.php">Cadastro</a></li>
-		  <li><a href="download.php">Download</a></li>
+          <li class="active"><a href="home">Home</a></li>
+          <li><a href="cadastro">Cadastro</a></li>
+		  <li><a href="download">Download</a></li>
         </ul>
         <h3 class="text-muted">MeuBandoApp!!!</h3>
       </div>
@@ -36,7 +36,7 @@
       <div class="jumbotron">
         <h1>Crie seu bando</h1>
         <p class="lead">O MeuBandoApp facilita o controle do seu bando. Criado para controlar questões financeiras e consumo do bar do seu motoclube. Possui suporte a múltiplos eventos em todas as sedes do seu motoclube.</p>
-        <p><a class="btn btn-lg btn-success" href="cadastro.php" role="button">Cadastre-se agora</a></p>
+        <p><a class="btn btn-lg btn-success" href="cadastro" role="button">Cadastre-se agora</a></p>
       </div>
 
       <div class="row marketing">

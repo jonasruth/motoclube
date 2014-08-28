@@ -14,6 +14,18 @@ $rulelist = array(
         'rule'=>'/index', // combinará com "http://localhost/jonas-php-library/demo/"
         'action'=>'./admin/home.php', // a ação a ser tomada
     ),
+	'cadastro' => array(
+        'rule'=>'/cadastro', // combinará com "http://localhost/jonas-php-library/demo/"
+        'action'=>'./admin/cadastro.php', // a ação a ser tomada
+    ),
+	'welcome' => array(
+        'rule'=>'/welcome', // combinará com "http://localhost/jonas-php-library/demo/"
+        'action'=>'./admin/welcome.php', // a ação a ser tomada
+    ),
+	'download' => array(
+        'rule'=>'/download', // combinará com "http://localhost/jonas-php-library/demo/"
+        'action'=>'./admin/download.php', // a ação a ser tomada
+    ),
 );
 
 $my_protocol = 'http';
