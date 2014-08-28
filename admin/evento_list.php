@@ -1,5 +1,5 @@
 <?php
-require("../header_inc.php");
+require("header_inc.php");
 require("../db_inc.php");
 
 $sedes = array('São José dos Pinhais','Blumenau','Lapa','Florianópolis','Curitiba');
